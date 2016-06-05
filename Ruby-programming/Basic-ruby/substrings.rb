@@ -1,12 +1,9 @@
 def substrings str, dictionary
   str_arr = str.downcase.split
-  hystogram = {}
+  hystogram = Hash.new(0)
   str_arr.each do |word|
     dictionary.each do |substr|
-      if word.include? substr.downcase
-        hystogram[substr] ||= 0
-        hystogram[substr] += 1
-      end
+      hystogram[substr] += 1 if word.include? substr.downcase
     end
   end
   puts hystogram
