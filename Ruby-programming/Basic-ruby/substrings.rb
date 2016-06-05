@@ -4,7 +4,8 @@ def substrings str, dictionary
   dictionary.each do |substr|
     hystogram[substr] = str.scan(substr.downcase).length if str.include? substr.downcase
   end
-  puts hystogram
+  hystogram = Hash[hystogram.sort_by { |k,v| v }.reverse]
+  puts hystogram.inspect
   hystogram
 end
 
