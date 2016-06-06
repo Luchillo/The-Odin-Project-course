@@ -12,8 +12,8 @@ def stock_picker(stock_arr)
       end
     end
   end
-  puts better_investment.values_at(:buy_day, :sell_day).inspect
+  better_investment.values_at(:buy_day, :sell_day)
 end
 
-stock_picker([17,3,6,9,15,8,6,1,10])
+puts stock_picker([17,3,6,9,15,8,6,1,10]).inspect
 # Should output [1,4] for a profit of $15 - $3 == $12

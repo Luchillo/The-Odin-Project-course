@@ -12,9 +12,8 @@ def caesar_cipher(str, offset)
 
     ((c.ord - sum + offset) % ('z'.ord - 'a'.ord + 1) + sum).chr
   end
-  puts str.join
   str.join
 end
 
-caesar_cipher("What a string!", 5)
+puts caesar_cipher("What a string!", 5)
 puts "Bmfy f xywnsl!"
