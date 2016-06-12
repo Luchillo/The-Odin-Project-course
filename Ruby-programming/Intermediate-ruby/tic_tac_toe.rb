@@ -74,7 +74,7 @@ class Board
   end
 
   def game_over?
-    @moves > 8 || !winner.nil?
+    @moves > 8 || winner
   end
 
   private
