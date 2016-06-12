@@ -78,37 +78,37 @@ class Board
   end
 
   private
-  def check_win_move x, y, player
-    if check_column_win(x, player.chip) ||
-       check_row_win(y, player.chip) ||
-       check_diag_win(player.chip)
-       @winner = player.id
-    end
-  end
-
-  def check_column_win(x, chip)
-    @board.each { |row| return false unless row[x] == chip }
-    true
-  end
-
-  def check_row_win(y, chip)
-    @board[y].each { |slot| return false unless slot == chip }
-    true
-  end
-
-  def check_diag_win(chip)
-    win_value = (0...@size).reduce([true, true]) do |condition, i|
-      unless @board[i][i] == chip
-        condition[0] = false
+    def check_win_move x, y, player
+      if check_column_win(x, player.chip) ||
+        check_row_win(y, player.chip) ||
+        check_diag_win(player.chip)
+        @winner = player.id
       end
-      unless @board[i][@size - i - 1] == chip
-        condition[1] = false
-      end
-      condition
     end
 
-    win_value[0] || win_value[1]
-  end
+    def check_column_win(x, chip)
+      @board.each { |row| return false unless row[x] == chip }
+      true
+    end
+
+    def check_row_win(y, chip)
+      @board[y].each { |slot| return false unless slot == chip }
+      true
+    end
+
+    def check_diag_win(chip)
+      win_value = (0...@size).reduce([true, true]) do |condition, i|
+        unless @board[i][i] == chip
+          condition[0] = false
+        end
+        unless @board[i][@size - i - 1] == chip
+          condition[1] = false
+        end
+        condition
+      end
+
+      win_value[0] || win_value[1]
+    end
 end
 
 class Player
