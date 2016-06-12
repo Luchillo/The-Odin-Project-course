@@ -11,7 +11,7 @@ class Game
       puts "Player #{n + 1} chip is #{chip}"
     end
 
-    @curr_player = 0
+    @curr_player = rand.round
 
     @board = Board.new(3)
   end
