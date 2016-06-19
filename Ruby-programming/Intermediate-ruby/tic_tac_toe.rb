@@ -21,7 +21,7 @@ class Game
     gets
     loop do
       system('clear')
-      puts @board.state
+      puts @board
       if @board.game_over?
         puts @board.winner.nil? ? "Draw" : "#{@players[@board.winner].name} WINS", "END OF THE GAME"
         break
@@ -47,7 +47,7 @@ class Board
     @board = Array.new(size) { Array.new(size, ' ') }
   end
 
-  def state
+  def to_s
     state_str = @board.reduce(@header_str.dup) do |str, row|
       row_str = '| ' << row.map(&:to_s).join(' | ') << ' |'
       str << row_str.center(@str_size + 10) << "\n"
